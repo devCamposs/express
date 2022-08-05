@@ -27,15 +27,10 @@ app.get('/pessoa', (req, res) => {
     res.send(pessoa)
 })
 
-app.get('/pessoa', (req, res) => {
-    res.send(pessoa)
-})
-
 app.post('/pessoa/', (req, res) =>{
     pessoa.push(req.body)
     res.send(pessoa)
 })
-
 
 app.put('pessoa/:id', (req, res) =>{
     let pessoa = pessoa.find(pess => pess.id === req.params.id)
@@ -44,9 +39,11 @@ app.put('pessoa/:id', (req, res) =>{
     res.send(pessoa)
 })
 
-/* app.delete('pessoa/:id: 1', (req, res) => {
-    let pessoa = pessoa.
-}) */
+app. delete('/pessoa/:id', (req, res) =>{
+    let pessoa = pessoa.find(pess => pess.id == req.params.id)
+    pessoa.splice(pessoa.indexOf(pessoa), 1)
+    res.send(pessoa)
+})
 
 app.listen(3000, () => {
     console.log('esta rodando na porta 3000')
